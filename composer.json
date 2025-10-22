@@ -1,0 +1,11 @@
+{
+  "name": "grigory/todo-list-api",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+
+  }
+}
