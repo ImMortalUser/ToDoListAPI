@@ -1,16 +1,26 @@
 <?php
-namespace App\Domain\Task;
+declare(strict_types=1);
+
+namespace src\Domain\Task;
 
 class Task
 {
-    public function __construct(
-        public ?int $id,
-        public string $title,
-        public ?string $description,
-        public TaskStatus $status,
-        public string $created_at,
-        public string $updated_at
-    ) {}
+    public ?int $id;
+    public string $title;
+    public ?string $description;
+    public string $status;
+    public string $createdAt;
+    public string $updatedAt;
+
+    public function __construct(?int $id, string $title, ?string $description, string $status, string $createdAt, string $updatedAt)
+    {
+        $this->id = $id;
+        $this->title = $title;
+        $this->description = $description;
+        $this->status = $status;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
+    }
 
     public function toArray(): array
     {
@@ -18,9 +28,9 @@ class Task
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'status' => (string)$this->status,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'status' => $this->status,
+            'created_at' => $this->createdAt,
+            'updated_at' => $this->updatedAt,
         ];
     }
 }

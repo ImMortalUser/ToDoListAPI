@@ -1,11 +1,13 @@
 {
-  "name": "grigory/todo-list-api",
+  "name": "app/todo-php",
+  "description": "Simple To-Do REST API (MVC + DDD + CQRS)",
+  "type": "project",
+  "require": {
+    "ext-pdo": "*"
+  },
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "src\\": "src/"
     }
-  },
-  "require": {
-
   }
 }

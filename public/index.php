@@ -1,37 +1,34 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+declare(strict_types=1);
 
-use App\Config\Router\Router;
-use App\Presentation\TaskController;
-use App\Shared\Database;
-use App\Infrastructure\PdoTaskRepository;
-use App\Application\TaskService;
+require __DIR__ . '/../vendor/autoload.php';
 
-$container = new class {
-    private array $services = [];
-    public function set(string $key, $service): void { $this->services[$key] = $service; }
-    public function get(string $key) { return $this->services[$key]; }
-};
+use src\Config\Router;
+use src\Controllers\TaskController;
+use src\Infrastructure\Database\Connection;
+use src\Infrastructure\Repository\SQLiteTaskRepository;
 
-$db = new Database(__DIR__ . '/../data/database.sqlite');
-$repository = new PdoTaskRepository($db->getPdo());
-$service = new TaskService($repository);
-$controller = new TaskController($service);
-
-$container->set(TaskController::class, $controller);
+$dbFile = __DIR__ . '/../Storage/database.sqlite';
+$pdo = Connection::make($dbFile);
+$repository = new SQLiteTaskRepository($pdo);
+$controller = new TaskController($repository);
 
 $router = new Router();
 
-(require __DIR__ . '/../src/Config/routes.php')($router, $container);
+$router->addRoute('GET', '/tasks', fn() => $controller->index());
+$router->addRoute('GET', '/tasks/{id}', fn($params) => $controller->show((int)$params['id']));
+$router->addRoute('POST', '/tasks', fn() => $controller->create());
+$router->addRoute('PUT', '/tasks/{id}', fn($params) => $controller->update((int)$params['id']));
+$router->addRoute('DELETE', '/tasks/{id}', fn($params) => $controller->delete((int)$params['id']));
 
 $method = $_SERVER['REQUEST_METHOD'];
-$uri = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $response = $router->dispatch($method, $uri);
 
-if (is_array($response)) {
-    header('Content-Type: application/json; charset=utf-8');
+if ($response !== null) {
+    if (!headers_sent()) {
+        header('Content-Type: application/json');
+    }
     echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-} elseif ($response !== null) {
-    echo $response;
 }
