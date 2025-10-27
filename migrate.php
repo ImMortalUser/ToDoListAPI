@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-use src\Infrastructure\Database\Connection;
+use App\Infrastructure\Database\Connection;
 
 $dbFile = __DIR__ . '/Storage/database.sqlite';
 $pdo = Connection::make($dbFile);
