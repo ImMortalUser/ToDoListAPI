@@ -3,11 +3,12 @@
   "description": "Simple To-Do REST API (MVC + DDD + CQRS)",
   "type": "project",
   "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-mbstring": "*"
   },
   "autoload": {
     "psr-4": {
-      "src\\": "src/"
+      "App\\": "src/"
     }
   }
 }

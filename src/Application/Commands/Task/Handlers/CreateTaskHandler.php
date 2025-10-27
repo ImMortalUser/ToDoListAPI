@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Application\Commands\Handlers;
+namespace App\Application\Commands\Task\Handlers;
 
-use src\Application\Commands\CreateTaskCommand;
-use src\Domain\Task\Task;
-use src\Domain\Task\TaskRepositoryInterface;
+use App\Application\Commands\Task\CreateTaskCommand;
+use App\Domain\Task\Task;
+use App\Domain\Task\TaskRepositoryInterface;
 
 class CreateTaskHandler
 {

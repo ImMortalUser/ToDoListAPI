@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Shared;
+namespace App\Shared;
 
 class Response
 {

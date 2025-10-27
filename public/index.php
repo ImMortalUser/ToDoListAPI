@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use src\Config\Router;
-use src\Controllers\TaskController;
-use src\Infrastructure\Database\Connection;
-use src\Infrastructure\Repository\SQLiteTaskRepository;
+use App\Infrastructure\Web\Controllers\TaskController;
+use App\Infrastructure\Database\Connection;
+use App\Infrastructure\Repository\SQLiteTaskRepository;
+use App\Infrastructure\Web\Routing\Router;
 
 $dbFile = __DIR__ . '/../Storage/database.sqlite';
 $pdo = Connection::make($dbFile);
@@ -15,11 +15,11 @@ $controller = new TaskController($repository);
 
 $router = new Router();
 
-$router->addRoute('GET', '/tasks', fn() => $controller->index());
-$router->addRoute('GET', '/tasks/{id}', fn($params) => $controller->show((int)$params['id']));
-$router->addRoute('POST', '/tasks', fn() => $controller->create());
-$router->addRoute('PUT', '/tasks/{id}', fn($params) => $controller->update((int)$params['id']));
-$router->addRoute('DELETE', '/tasks/{id}', fn($params) => $controller->delete((int)$params['id']));
+$router->addRoute('GET', '/tasks', fn() => $controller->getTaskList());
+$router->addRoute('GET', '/tasks/{id}', fn() => $controller->getTask());
+$router->addRoute('POST', '/tasks', fn() => $controller->createTask());
+$router->addRoute('PUT', '/tasks/{id}', fn() => $controller->updateTask());
+$router->addRoute('DELETE', '/tasks/{id}', fn() => $controller->deleteTask());
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

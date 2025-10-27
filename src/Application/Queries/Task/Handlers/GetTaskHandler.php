@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Application\Queries\Handlers;
+namespace App\Application\Queries\Task\Handlers;
 
-use src\Application\Queries\GetTaskQuery;
-use src\Domain\Task\TaskRepositoryInterface;
+use App\Application\Queries\Task\GetTaskQuery;
+use App\Domain\Task\TaskRepositoryInterface;
 
 class GetTaskHandler
 {

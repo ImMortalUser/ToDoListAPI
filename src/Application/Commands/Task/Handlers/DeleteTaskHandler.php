@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Application\Commands\Handlers;
+namespace App\Application\Commands\Task\Handlers;
 
-use src\Application\Commands\DeleteTaskCommand;
-use src\Domain\Task\TaskRepositoryInterface;
+use App\Application\Commands\Task\DeleteTaskCommand;
+use App\Domain\Task\TaskRepositoryInterface;
 
 class DeleteTaskHandler
 {

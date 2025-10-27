@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Application\Commands;
+namespace App\Application\Commands\Task;
 
 class CreateTaskCommand
 {

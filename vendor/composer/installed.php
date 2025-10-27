@@ -3,7 +3,7 @@
         'name' => 'app/todo-php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8b1b94dd66abbfc199a66114ef48f703e1953358',
+        'reference' => 'd2a6fc6dd1ad077d9f1d00b2e97c2974f979ab46',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'app/todo-php' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8b1b94dd66abbfc199a66114ef48f703e1953358',
+            'reference' => 'd2a6fc6dd1ad077d9f1d00b2e97c2974f979ab46',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

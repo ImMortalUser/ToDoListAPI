@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Domain\Task;
+namespace App\Domain\Task;
 
 class Task
 {

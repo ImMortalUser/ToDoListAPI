@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Infrastructure\Repository;
+namespace App\Infrastructure\Repository;
 
-use src\Domain\Task\Task;
-use src\Domain\Task\TaskRepositoryInterface;
+use App\Domain\Task\Task;
+use App\Domain\Task\TaskRepositoryInterface;
 use PDO;
 
 class SQLiteTaskRepository implements TaskRepositoryInterface

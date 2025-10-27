@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Application\Queries;
+namespace App\Application\Queries\Task;
 
 class GetTaskQuery
 {

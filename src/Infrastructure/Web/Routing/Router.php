@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace src\Config;
+namespace App\Infrastructure\Web\Routing;
 
 use Closure;
 use ReflectionFunction;
