@@ -1,6 +1,6 @@
 ToDo List API
 
-- composer install - создание vendor
+- composer update - создание vendor
 - php -e migrate.php - создание бд
 - php -S localhost:8000 -t public - запуск сервера
 
