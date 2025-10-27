@@ -1,8 +1,8 @@
 ToDo List API
 
-composer install
-php -e migrate.php
-php -S localhost:8000 -t public
+- composer install - создание vendor
+- php -e migrate.php - создание бд
+- php -S localhost:8000 -t public - запуск сервера
 
-Сервер доступен по адресу: http://localhost:8000
-Список задач - http://localhost:8000/tasks
+- Сервер доступен по адресу: http://localhost:8000
+- Список задач - http://localhost:8000/tasks
