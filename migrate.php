@@ -17,4 +17,4 @@ $pdo->exec('CREATE TABLE IF NOT EXISTS tasks (
     updated_at TEXT NOT NULL
 )');
 
-echo "Migration complete.\n";
+echo "Migration complete\n";
