@@ -138,11 +138,6 @@ class TaskController
                 return $_GET;
 
             case 'POST':
-                if (stripos($contentType, 'application/json') !== false) {
-                    $data = json_decode(file_get_contents('php://input'), true);
-                    return is_array($data) ? $data : [];
-                }
-
                 if (stripos($contentType, 'application/x-www-form-urlencoded') !== false) {
                     return $_POST;
                 }
@@ -152,10 +147,6 @@ class TaskController
             case 'PUT':
             case 'DELETE':
                 $raw = file_get_contents('php://input');
-                if (stripos($contentType, 'application/json') !== false) {
-                    $data = json_decode($raw, true);
-                    return is_array($data) ? $data : [];
-                }
 
                 if (stripos($contentType, 'application/x-www-form-urlencoded') !== false) {
                     $data = [];
